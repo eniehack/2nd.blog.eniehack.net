@@ -1,21 +1,66 @@
 import React from "react"
-import { Link } from "gatsby"
+import Icon from "@mdi/react"
+import { mdiCalendar } from "@mdi/js"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+export const showListedArticles = ({ data }) => {
+	const articles = data.allAsciidoc.edges
+	return (
+		<Layout>
+			<SEO title="Home" />
+			{
+				articles.map(({ node }) => {
+					return (
+						<article key={node.id}>
+							<section>
+								<h2><Link to={"" + node.fields.slug}>{node.document.title}</Link></h2>
+								<p>
+									<Icon path={mdiCalendar}
+										size={1}
+									/>
+									{node.revision.date} - {"v" + node.revision.number}</p>
+							</section>
+						</article>
+					)
+				})
+			}
+		</Layout>
+	)
+}
 
-export default IndexPage
+export const query = graphql`
+query MyQuery {
+  allAsciidoc(sort: {order: DESC, fields: revision___date}) {
+    edges {
+      node {
+				html
+				id
+				fields {
+          slug
+        }
+				document {
+					title
+				}
+        internal {
+          description
+          content
+        }
+        author {
+          email
+          authorInitials
+        }
+        revision {
+          date
+          number
+          remark
+        }
+      }
+    }
+  }
+}
+`
+
+export default showListedArticles

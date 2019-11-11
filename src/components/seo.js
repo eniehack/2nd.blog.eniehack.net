@@ -67,13 +67,19 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+			].concat(meta)
+			}
+			script={
+				{
+					src: "https://cdn.jsdelivr.net/npm/ie-buster@1.1.0/dist/ie-buster.min.js"
+				}
+			}
     />
   )
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `ja`,
   meta: [],
   description: ``,
 }

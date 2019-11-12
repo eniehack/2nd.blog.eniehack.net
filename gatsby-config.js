@@ -1,3 +1,5 @@
+import { CustomConverter } from "./src/utils/converter";
+
 module.exports = {
   siteMetadata: {
     title: `eniehack's blog`,
@@ -24,7 +26,8 @@ module.exports = {
     {
       resolve: `gatsby-transformer-asciidoc`,
       options: {
-        definesEmptyAttributes: false,
+				definesEmptyAttributes: false,
+				converterFactory: CustomConverter,
       }
     },
     `gatsby-plugin-sharp`,

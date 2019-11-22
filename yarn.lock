@@ -866,6 +866,16 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
+"@hitsuji_no_shippo/gatsby-transformer-asciidoc@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@hitsuji_no_shippo/gatsby-transformer-asciidoc/-/gatsby-transformer-asciidoc-0.5.0.tgz#385fa7fccae12098c8a14d12bdec35e1a79912ac"
+  integrity sha512-WKASc3cLONeK4VBul9B1lGuDKEd+RKIdRCiR25G1DEesIzX9h81Nls6xbKYzpzLkUooJalSLEyOVKNCILZj23A==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    asciidoctor "^2.0.0"
+    gray-matter "^4.0.2"
+    js-yaml "^3.13.1"
+
 "@jimp/bmp@^0.6.8":
   version "0.6.8"
   resolved "https://registry.yarnpkg.com/@jimp/bmp/-/bmp-0.6.8.tgz#8abbfd9e26ba17a47fab311059ea9f7dd82005b6"
@@ -1885,7 +1895,7 @@ asciidoctor-opal-runtime@0.3.0:
     glob "7.1.3"
     unxhr "1.0.1"
 
-asciidoctor@^2.0.3:
+asciidoctor@^2.0.0, asciidoctor@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/asciidoctor/-/asciidoctor-2.0.3.tgz#350a41d051c5f99d1d8fa4abdc7a9c80da48f90a"
   integrity sha512-6UB/oB0jRQOy6/DoFBH1nUzAAGt7Aa6snfXKZyvaxKxQHcuvFuJcvS2zVjAH2eURQidkBLy+J0VHBVjRWs8CiQ==
@@ -5618,14 +5628,6 @@ gatsby-telemetry@^1.1.35:
     stack-utils "1.0.2"
     uuid "3.3.3"
 
-gatsby-transformer-asciidoc@^1.1.15:
-  version "1.1.15"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-asciidoc/-/gatsby-transformer-asciidoc-1.1.15.tgz#038a86558d0aae61f4972d4fa4f94baae9cf340d"
-  integrity sha512-pJ9SRPRIUA0HuELA4u+xQHMxgJTj32qF2FZpA4hg3E3uTNVeGFdEKA3VxBrddLjfVMqSmOkLfgdlqPTXZzF9Dw==
-  dependencies:
-    "@babel/runtime" "^7.6.3"
-    asciidoctor "^2.0.3"
-
 gatsby-transformer-sharp@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.3.1.tgz#8d6c61cfe7c52d56f817ea94aa9affb61d68624b"
@@ -6171,6 +6173,16 @@ graphql@^14.5.8:
   integrity sha512-MMwmi0zlVLQKLdGiMfWkgQD7dY/TUKt4L+zgJ/aR0Howebod3aNgP5JkgvAULiR2HPVZaP2VEElqtdidHweLkg==
   dependencies:
     iterall "^1.2.2"
+
+gray-matter@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/gray-matter/-/gray-matter-4.0.2.tgz#9aa379e3acaf421193fce7d2a28cebd4518ac454"
+  integrity sha512-7hB/+LxrOjq/dd8APlK0r24uL/67w7SkYnfwhNFwg/VDIGWGmduTDYf3WNstLW2fbbmRwrDGCVSJ2isuf2+4Hw==
+  dependencies:
+    js-yaml "^3.11.0"
+    kind-of "^6.0.2"
+    section-matter "^1.0.0"
+    strip-bom-string "^1.0.0"
 
 gud@^1.0.0:
   version "1.0.0"
@@ -7373,7 +7385,7 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
-js-yaml@^3.10.0, js-yaml@^3.13.1, js-yaml@^3.5.2:
+js-yaml@^3.10.0, js-yaml@^3.11.0, js-yaml@^3.13.1, js-yaml@^3.5.2:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -11241,6 +11253,14 @@ scss-tokenizer@^0.2.3:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
 
+section-matter@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/section-matter/-/section-matter-1.0.0.tgz#e9041953506780ec01d59f292a19c7b850b84167"
+  integrity sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==
+  dependencies:
+    extend-shallow "^2.0.1"
+    kind-of "^6.0.0"
+
 seek-bzip@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/seek-bzip/-/seek-bzip-1.0.5.tgz#cfe917cb3d274bcffac792758af53173eb1fabdc"
@@ -12014,6 +12034,11 @@ strip-ansi@^5.0.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   integrity sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==
   dependencies:
     ansi-regex "^4.1.0"
+
+strip-bom-string@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/strip-bom-string/-/strip-bom-string-1.0.0.tgz#e5211e9224369fbb81d633a2f00044dc8cedad92"
+  integrity sha1-5SEekiQ2n7uB1jOi8ABE3IztrZI=
 
 strip-bom@^2.0.0:
   version "2.0.0"

@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Nakaya <eniehack@outlook.jp>",
   "dependencies": {
+    "@hitsuji_no_shippo/gatsby-transformer-asciidoc": "^0.5.0",
     "@mdi/js": "^4.5.95",
     "@mdi/react": "^1.2.1",
     "antd": "^3.25.0",
@@ -18,8 +19,8 @@
     "gatsby-plugin-sass": "^2.1.21",
     "gatsby-plugin-sharp": "^2.2.34",
     "gatsby-source-filesystem": "^2.1.35",
-    "gatsby-transformer-asciidoc": "^1.1.15",
     "gatsby-transformer-sharp": "^2.3.1",
+    "gray-matter": "^4.0.2",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",

@@ -1,6 +1,11 @@
+---
+category: infomation
+tags: []
+---
 = この度ブログをはてなからnetlify+Hugoに移行しました
 Nakaya <eniehack@outlook.jp>
 1.0.0, 2019-07-20
+:toc:
 
 [[process]]
 == 経緯

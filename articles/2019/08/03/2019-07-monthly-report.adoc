@@ -1,9 +1,13 @@
+---
+category: monthly_report
+tags: [technology, programming,]
+---
 = July 2019 Monthly Report
 Nakaya <eniehack@outlook.jp>
 1.0, 2019-08-03: First release
 :toc:
 :author: Nakaya
-:description: "July 2019 Monthly Report"
+:description: July 2019 Monthly Report
 
 先月07月にあったことをカテゴリ別に書いていこうと思います
 

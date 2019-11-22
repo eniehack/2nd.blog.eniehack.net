@@ -41,7 +41,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-transformer-asciidoc`,
+      resolve: `@hitsuji_no_shippo/gatsby-transformer-asciidoc`,
       options: {
 				definesEmptyAttributes: false,
 				converterFactory: AsciidocConverter,

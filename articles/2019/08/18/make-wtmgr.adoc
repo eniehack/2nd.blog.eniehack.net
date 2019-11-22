@@ -1,6 +1,11 @@
+---
+category: technology
+tags: [technology, python, golang, latex, product]
+---
 = W32TeX向けアーカイブマネージャを作った
 Nakaya <eniehack@outlook.jp>
 1.0.0, 2019-08-18
+:toc:
 
 こんにちは。最近部誌でTeXを使っているのでTeXにお熱のNakayaです。ブログ更新が2週間空きましたが元気に生活しています。
 

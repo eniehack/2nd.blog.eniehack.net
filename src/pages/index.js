@@ -16,7 +16,7 @@ export const showListedArticles = ({ data }) => {
 					{
 						articles.map(({ node }) => {
 							return (
-								<section key={node.id} style="margin-bottom: 20px;margin-top: 20px;">
+								<section key={node.id}> #style="margin-bottom: 20px;margin-top: 20px;">
 									<h2>
 										<Link to={"" + node.fields.slug}>
 											{node.document.title}

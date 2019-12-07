@@ -1,5 +1,8 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import { Tag } from "antd";
+import { mdiFolder, mdiTag, mdiCalendar } from "@mdi/js";
+import { Icon } from "@mdi/react";
 
 import SEO from "../components/seo";
 import Layout from "../components/layout";
@@ -24,15 +27,39 @@ export const ListedSameTagsPostTemplate = ({ data, pageContext }) => {
 											</Link>
 										</h2>
 										<div>
-											<time>{edges.node.revision.date}</time>
-											<p>Tags: 
+											<div>
+												<Icon
+													path={mdiCalendar}
+													size={0.75}
+												/>
+												<time>{edges.node.revision.date}</time>
+											</div>
+											<div>
+												<Icon
+													path={mdiTag}
+													size={0.75}
+												/>
 												{
 													edges.node.frontmatter.tags.map((tag, tagsindex) => {
-														return <span key={tagsindex}>{tag}</span>
+														return (
+															<Tag key={tagsindex}>
+																<Link to={`/tags/${tag}`}>
+																	{tag}
+																</Link>
+															</Tag>
+														)
 													})
 												}
-											</p>
-											<p>Category: {edges.node.frontmatter.category}</p>
+											</div>
+											<div>
+												<Icon
+													path={mdiFolder}
+													size={0.75}
+												/>
+												<Tag>
+													{edges.node.frontmatter.category}
+												</Tag>
+											</div>
 										</div>
                   </section>
                 )

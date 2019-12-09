@@ -1,11 +1,12 @@
 import React from "react"
 import Icon from "@mdi/react"
 import { mdiCalendar, mdiFolder, mdiTag } from "@mdi/js"
-import { Link, graphql } from "gatsby"
+import { Link, graphql } from "gatsby";
+import { Tag } from "antd"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Tag } from "antd"
+import SEO from "../components/seo";
+import Breadcrumb from "../components/breadcrumb";
 
 export const postDetailPageTemplate = ({ data }) => {
 	const article = data.asciidoc
@@ -13,28 +14,33 @@ export const postDetailPageTemplate = ({ data }) => {
 		<Layout>
       <SEO title={article.document.title} />
 			<article>
+				<Breadcrumb slug={article.fields.slug} title={article.document.title} category={article.frontmatter.category}/>
 				<section>
 					<h1 itemProp="name">
 						{article.document.title}
 					</h1>
 					<div>
-						<Icon 
-							path={mdiCalendar}
-							size={0.75}
-						/>
-						<time itemProp="datepublished" dateTime={article.revision.date}>{article.revision.date}</time>
-						<Icon 
-							path={mdiFolder}
-							size={0.75}
-						/>
-						<p>
-							{article.frontmatter.category}
-						</p>
-						<Icon 
-							path={mdiTag}
-							size={0.75}
-						/>
 						<div>
+							<Icon 
+								path={mdiCalendar}
+								size={0.75}
+							/>
+							<time itemProp="datepublished" dateTime={article.revision.date}>{article.revision.date}</time>
+							<Icon 
+								path={mdiFolder}
+								size={0.75}
+							/>
+							<Tag>
+								<Link to={"/categories/"+article.frontmatter.category}>
+									{article.frontmatter.category}
+								</Link>
+							</Tag>
+						</div>
+						<div>
+							<Icon 
+								path={mdiTag}
+								size={0.75}
+							/>
 							{
 								article.frontmatter.tags.map((tag, index) =>
 									<Tag key={index}>

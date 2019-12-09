@@ -7,15 +7,15 @@ import { Icon } from "@mdi/react";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
 
-export const ListedSameTagsPostTemplate = ({ data, pageContext }) => {
+export const ListedSameCategoryTemplate = ({ data, pageContext }) => {
 		const article = data.allAsciidoc.edges;
-		const { tag } = pageContext;
+		const { category } = pageContext;
     return (
         <Layout>
-          <SEO title={`Tags: ${tag}`} />
+          <SEO title={`Category: ${category}`} />
           <article>
             <h1 itemProp="name">
-              {`Tags: ${tag}`}
+              {`Category: ${category}`}
             </h1>
 						{
 							article.map((edges, index) => {
@@ -72,11 +72,11 @@ export const ListedSameTagsPostTemplate = ({ data, pageContext }) => {
     )
 }
 
-export default ListedSameTagsPostTemplate
+export default ListedSameCategoryTemplate
 
 export const Query = graphql`
-	query getPostsOnSameTag($tag: String!) {
-	  allAsciidoc(filter: {frontmatter: {tags: {eq: $tag}}}) {
+	query getPostsOnSameCategory($category: String!) {
+	  allAsciidoc(filter: {frontmatter: {category: {eq: $category}}}) {
 	    edges {
 	      node {
 	        frontmatter {
@@ -93,11 +93,6 @@ export const Query = graphql`
 	          date
 	        }
 	      }
-	    }
-	  }
-	  sitePage {
-	    context {
-	      tag
 	    }
 	  }
 	}`

@@ -15,11 +15,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
     return new Promise((resolve, reject) => {
 			const blogPost = path.resolve(`./src/templates/detail.js`);
+			const listedPostSameTags = path.resolve(`./src/templates/listedPostsOnSameTags.js`);
+			const listedPostSameCategory = path.resolve(`./src/templates/listedPostsOnSameCategory.js`);
 			resolve(
 				graphql(
-					`
-					query getSlug {
-						allAsciidoc {
+					`{
+						getSlug: allAsciidoc {
 							edges {
 								node {
 									fields {
@@ -28,15 +29,34 @@ exports.createPages = async ({ graphql, actions }) => {
 								}
 							}
 						}
-					}
-					`
+						getTags: allAsciidoc {
+							edges {
+								node {
+									frontmatter {
+										tags
+									}
+								}
+							}
+						}
+						getCategory: allAsciidoc {
+							edges {
+								node {
+									frontmatter {
+										category
+									}
+								}
+							}
+						}
+					}`
 				).then(result =>{
 					if (result.errors) {
 						console.log(result.errors);
 						reject(result.errors);
 					}
 
-					const posts = result.data.allAsciidoc.edges
+					const posts = result.data.getSlug.edges;
+					const tags = result.data.getTags.edges;
+					const category = result.data.getCategory.edges;
 
 					posts.forEach((post) => {
 						createPage({
@@ -47,9 +67,32 @@ exports.createPages = async ({ graphql, actions }) => {
 							}
 						});
 					});
+
+          tags.forEach((edge) => {
+						const tags = edge.node.frontmatter.tags;
+						tags.forEach((tag) => {
+							createPage({
+								path: `/tags/${tag}`,
+								component: listedPostSameTags,
+								context: {
+									tag: tag,
+								}
+							});
+						});
+					});
+					
+					category.forEach((edge) => {
+						createPage({
+							path: `/categories/${edge.node.frontmatter.category}`,
+							component: listedPostSameCategory,
+							context: {
+								category: edge.node.frontmatter.category,
+							}
+						})
+					});
 				})
-			)
-		})
+			);
+		});
 }
 
 // http://danilowoz.com/Advanced-blog-system-in-Gatsby/

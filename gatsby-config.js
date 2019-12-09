@@ -1,3 +1,22 @@
+const asciidoc = require("asciidoctor")();
+
+class AsciidocConverter {
+	constructor() {
+		this.baseConverter = asciidoc.Html5Converter.$new();
+	}
+
+	convert(node, transform) {
+		const nodeName = transform || node.getNodeName();
+		if (nodeName === "section") {
+			return `<section class="section"><div class="container"><h2 class="subtitle">${node.getTitle()}</h2>${node.getContent()}</div></section>`;
+		}
+		if (nodeName === "paragraph") {
+			return `<p>${node.getContent()}<p>`
+		}
+		return this.baseConverter.convert(node, transform);
+	}
+}
+
 module.exports = {
   siteMetadata: {
     title: `eniehack's blog`,
@@ -8,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/articles`,
+        path: `${__dirname}/articles`,
         name: "articles",
       }
     },
@@ -22,9 +41,10 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-transformer-asciidoc`,
+      resolve: `@hitsuji_no_shippo/gatsby-transformer-asciidoc`,
       options: {
-        definesEmptyAttributes: false,
+				definesEmptyAttributes: false,
+				converterFactory: AsciidocConverter,
       }
     },
     `gatsby-plugin-sharp`,
